@@ -152,7 +152,7 @@ export function formatRemoteBranches(output) {
  *
  * @return {String} String list of each ref associated with repository.
  */
-function getRefs() {
+function getRefs() { // Probably wll not use this anymore.
   const args = [
     'for-each-ref',
     '--sort=-committerdate',
