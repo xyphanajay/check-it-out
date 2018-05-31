@@ -20,7 +20,7 @@ export const getRefs = (screen) => {
       'for-each-ref',
       '--sort=-committerdate',
       '--format=%(refname)',
-      // '--count=500',
+      // '--count=500', // Commented out to test as we build redux. If we don't need this, awesome.
     ]);
 
   let errorString = '';

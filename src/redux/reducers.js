@@ -20,9 +20,12 @@ export const reducer = (state = INITIAL_STATE, action) => { // state = initial s
 
   switch (action.type) {
     case actionType.ADD_REF:
-      const newRefs = typeof action.payload === 'string'
+      // Prior to spreading newRefs into refs, we should format the payload
+      const payload = typeof action.payload === 'string'
         ? Array.of(action.payload)
         : action.payload;
+
+      console.log(payload);
 
       // Need to add formatting to this reducer
 
