@@ -15,6 +15,8 @@ export const checkLog = (payload) => ({ payload, type: actionType.CHECK_LOG });
 
 export const checkoutRef = (payload) => ({ payload, type: actionType.CHECKOUT_REF});
 
+export const clearRefs = () => ({ type: actionType.CLEAR_REFS });
+
 export const getCurrentBranch = (payload) => ({ payload, type: actionType.GET_CURRENT_BRANCH })
 
 export const getRefs = (payload) => ({ payload, type: actionType.GET_REFS});
