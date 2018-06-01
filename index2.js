@@ -1,16 +1,7 @@
-const blessed = require('blessed');
-const getRefs = require('./src/utilsno/refsUtils.js');
+#!/usr/bin/env node
 
-function screen() {
-  const screen = blessed.screen({
-    autoPadding: true,
-    fullUnicode: true,
-    smartCSR: true,
-    title: 'Check It Out',
-  });
+require("babel-polyfill");
 
-  return screen;
-}
+const app2 = require('./lib/app2');
 
-
-getRefs(screen);
+app2.start(process.argv.slice(2));
