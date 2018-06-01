@@ -1,5 +1,5 @@
-import * as Redux = require('redux');
+import * as Redux from 'redux';
 
-import { reducer } = require('./reducers';
+import { reducer } from './reducers';
 
 export const store = Redux.createStore(reducer);

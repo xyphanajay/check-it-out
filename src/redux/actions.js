@@ -1,5 +1,6 @@
 export const actionType = {
   ADD_REF: 'ADD_REF',
+  ADD_REMOTE: 'ADD_REMOTE',
   CHECK_LOG: 'CHECK_LOG',
   CHECKOUT_REF: 'CHECKOUT_REF',
   CLEAR_REFS: 'CLEAR_REFS',
@@ -10,6 +11,8 @@ export const actionType = {
 }
 
 export const addRef = (payload) => ({ payload, type: actionType.ADD_REF });
+
+export const addRemote = (payload) => ({ payload, type: actionType.ADD_REMOTE });
 
 export const checkLog = (payload) => ({ payload, type: actionType.CHECK_LOG });
 
