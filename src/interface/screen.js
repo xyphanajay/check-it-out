@@ -4,7 +4,7 @@ import { getRefsListTable } from './refsListTable';
 import { getStatusBar } from './statusBar';
 import { getHelpDialogue } from './helpDialogue';
 
-export const getScreen = () => {
+export const getScreen = (currentRemote) => {
   const screen = blessed.screen({
     autoPadding: true,
     fullUnicode: true,
@@ -17,6 +17,7 @@ export const getScreen = () => {
   });
 
   const helpDialogue = getHelpDialogue();
+  const refsListTable = getRefsListTable();
 
   const toggleHelp = () => {
     helpDialogue.toggle();
@@ -46,9 +47,11 @@ export const getScreen = () => {
   //     });
   // });
 
-  screen.append(getRefsListTable());
+  screen.append(refsListTable);
   screen.append(getStatusBar());
   screen.append(helpDialogue);
+
+  refsListTable.focus();
 
   return screen;
 };

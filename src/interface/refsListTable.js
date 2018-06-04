@@ -1,6 +1,8 @@
 import blessed from 'blessed';
 
-export const getRefsListTable = () => {
+import { getScreen } from './screen';
+
+export const getRefsListTable = (currentRemote) => {
   const refsListTable = blessed.listtable({
     align: 'left',
     left: 0,
@@ -33,11 +35,11 @@ export const getRefsListTable = () => {
   });
 
   refsListTable.key(['left', 'h'], () => {
-    currentRemote = getPrevRemote(currentRemote, remoteList);
+    currentRemote = getPrevRemote(currentRemote, remotesArray);
   });
 
   refsListTable.key(['right', 'l'], () => {
-    currentRemote = getNextRemote(currentRemote, remoteList);
+    currentRemote = getNextRemote(currentRemote, remotesArray);
   });
 
   refsListTable.key('j', () => {
@@ -110,17 +112,17 @@ const parseSelection = selectedLine => {
  * Cycle to previous remote
  *
  * @param  currentRemote {String} Current displayed remote
- * @param  remoteList {Array} Unique remotes for current project
+ * @param  remotesArray {Array} Unique remotes for current project
  * @return {String}
  */
-const getPrevRemote = (currentRemote, remoteList) => {
-  let currIndex = remoteList.indexOf(currentRemote);
+const getPrevRemote = (currentRemote, remotesArray) => {
+  let currIndex = remotesArray.indexOf(currentRemote);
 
   if (currIndex > 0) {
     currIndex -= 1;
   }
 
-  currentRemote = remoteList[currIndex];
+  currentRemote = remotesArray[currIndex];
 
   getRefs(getScreen(), currentRemote);
 
@@ -131,17 +133,17 @@ const getPrevRemote = (currentRemote, remoteList) => {
  * Cycle to next remote
  *
  * @param  currentRemote {String} Current displayed remote
- * @param  remoteList {Array} Unique remotes for current project
+ * @param  remotesArray {Array} Unique remotes for current project
  * @return {String}
  */
-const getNextRemote = (currentRemote, remoteList) => {
-  let currIndex = remoteList.indexOf(currentRemote);
+const getNextRemote = (currentRemote, remotesArray) => {
+  let currIndex = remotesArray.indexOf(currentRemote);
 
-  if (currIndex < remoteList.length - 1) {
+  if (currIndex < remotesArray.length - 1) {
     currIndex += 1;
   }
 
-  currentRemote = remoteList[currIndex];
+  currentRemote = remotesArray[currIndex];
 
   getRefs(getScreen(), currentRemote);
 
