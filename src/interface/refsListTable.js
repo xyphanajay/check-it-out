@@ -2,7 +2,7 @@ import blessed from 'blessed';
 
 import { getScreen } from './screen';
 
-export const getRefsListTable = (currentRemote) => {
+export const getRefsListTable = (currentRemote, remotesArray) => {
   const refsListTable = blessed.listtable({
     align: 'left',
     left: 0,
@@ -102,7 +102,7 @@ export const getRefsListTable = (currentRemote) => {
 
 const parseSelection = selectedLine => {
   const selection = selectedLine.split(/\s*\s/).map(column => {
-    return column === 'local' ? '' : column;
+    return column === 'heads' ? '' : column;
   });
 
   return selection;

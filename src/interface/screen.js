@@ -3,6 +3,7 @@ import blessed from 'blessed';
 import { getRefsListTable } from './refsListTable';
 import { getStatusBar } from './statusBar';
 import { getHelpDialogue } from './helpDialogue';
+import { getRefs } from '../utils/refsUtil';
 
 export const getScreen = (currentRemote) => {
   const screen = blessed.screen({
@@ -17,7 +18,7 @@ export const getScreen = (currentRemote) => {
   });
 
   const helpDialogue = getHelpDialogue();
-  const refsListTable = getRefsListTable();
+  const refsListTable = getRefsListTable(currentRemote);
 
   const toggleHelp = () => {
     helpDialogue.toggle();
@@ -26,30 +27,13 @@ export const getScreen = (currentRemote) => {
 
   screen.key('?', toggleHelp);
   screen.key(['escape', 'q', 'C-c'], () => process.exit(0));
-  // screen.key('r', () => {
-  //   doFetchBranches()
-  //     .then(
-  //       () => {
-  //         branchTable.clearItems();
-
-  //         refreshTable(currentRemote);
-  //       },
-  //       err => {
-  //         screen.destroy();
-
-  //         readError(err, currentRemote, 'fetch');
-  //       },
-  //     )
-  //     .catch(error => {
-  //       screen.destroy();
-
-  //       readError(error, currentRemote, 'fetch');
-  //     });
-  // });
+  screen.key('r', getRefs(screen, currentRemote));
 
   screen.append(refsListTable);
   screen.append(getStatusBar());
   screen.append(helpDialogue);
+
+  refsListTable.setFront();
 
   refsListTable.focus();
 
