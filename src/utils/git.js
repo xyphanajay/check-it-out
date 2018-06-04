@@ -146,21 +146,3 @@ export function formatRemoteBranches(output) {
     return remoteBranchArray;
   });
 }
-
-/**
- * Print all refs assicated with git repository.
- *
- * @return {String} String list of each ref associated with repository.
- */
-function getRefs() {
-  const args = [
-    'for-each-ref',
-    '--sort=-committerdate',
-    '--format=%(refname)',
-    '--count=500',
-  ];
-
-  return execGit(args).then(data => {
-    return formatRemoteBranches(data);
-  });
-}
