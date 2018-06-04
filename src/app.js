@@ -1,22 +1,15 @@
-const chalk = require('chalk');
-const path = require('path');
-const updateNotifier = require('update-notifier');
+import 'babel-polyfill';
 
-const {
-  buildListArray,
-  buildRemoteList,
-  doCheckoutBranch,
-  doFetchBranches,
-} = require(path.resolve(__dirname, 'utils/git'));
+import chalk from 'chalk';
+import path from 'path';
+import updateNotifier from 'update-notifier';
 
-const dialogue = require(path.resolve(__dirname, 'utils/interface'));
-const { getRemoteTabs, readError } = require(path.resolve(
-  __dirname,
-  'utils/utils',
-));
+import { doCheckoutBranch, doFetchBranches } from './utils/git';
+import { getRefs, getRemotes } from './utils/refsUtil';
+import { getScreen } from './interface/screen';
 
-// Checks for available update and returns an instance
-const pkg = require(path.resolve(__dirname, '../package.json'));
+import * as pkg from '../package.json';
+
 const notifier = updateNotifier({ pkg });
 
 if (notifier.update) {
