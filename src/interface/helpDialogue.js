@@ -1,8 +1,14 @@
 import blessed from 'blessed';
 import chalk from 'chalk';
 
+let helpDialogue;
+
 export const getHelpDialogue = () => {
-  const helpDialogue = blessed.table({
+  if (helpDialogue) {
+    return helpDialogue;
+  }
+
+  helpDialogue = blessed.table({
     align: 'left',
     border: { type: 'line' },
     data: getHelpText(),
@@ -32,4 +38,10 @@ const getHelpText = () => {
   ];
 
   return text;
+};
+
+export const toggleHelp = () => {
+  helpDialogue.toggle();
+
+  helpDialogue.screen.render();
 };
