@@ -8,9 +8,6 @@
 	<a href="https://travis-ci.org/jwu910/check-it-out">
 		<img alt="Build Status" height="18" src="https://travis-ci.org/jwu910/check-it-out.svg?branch=master">
 	</a>
-	<a href="https://www.npmjs.org/package/check-it-out">
-		[![]()](https://www.firsttimersonly.com/)
-	</a>
 	<a href="https://www.firsttimersonly.com/">
 		<img alt="first-timers-only" height="18" src="https://img.shields.io/badge/first--timers--only-friendly-blue.svg?style=flat-square"
 	</a>
