@@ -9,7 +9,7 @@
 		<img alt="Build Status" height="18" src="https://travis-ci.org/jwu910/check-it-out.svg?branch=master">
 	</a>
 	<a href="https://www.npmjs.org/package/check-it-out">
-		asd
+		[![first-timers-only](https://img.shields.io/badge/first--timers--only-friendly-blue.svg?style=flat-square)](https://www.firsttimersonly.com/)
 	</a>
 	<a href="https://www.npmjs.org/package/check-it-out">
 		<img alt="Downloads per week" height="18" src="https://img.shields.io/npm/dw/localeval.svg">
@@ -27,7 +27,7 @@
 
 <hr/>
 <img src="assets/images/checkit-intro.gif">
-[![first-timers-only](https://img.shields.io/badge/first--timers--only-friendly-blue.svg?style=flat-square)](https://www.firsttimersonly.com/)
+
 Check it out, before you checkout.
 
 Check It Out lets you interactively see and choose what branch you want to check out without the hassle of trying to type out a long or confusing branch name. Checking out branches just got even simpler!
